@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: university
+  datasource:
+    url: jdbc:postgresql://localhost:5432/university
+    username: university
+    password: university
+    spring:
+      jpa:
+        hibernate:
+          ddl-auto: update
+          naming:
+            physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+            implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+        properties:
+          hibernate:
+            show_sql: false
+            format_sql: false
+            enable_lazy_load_no_trans: true
