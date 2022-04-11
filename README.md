@@ -13,3 +13,8 @@ I created a database it"s name university. Maybe you dont have it. So you can ch
 
 Proposed next steps/improvements
 
+Authentication 
+Exception handling
+Logging 
+Validation
+Can be improved endpoint response mechanism.
