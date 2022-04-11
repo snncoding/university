@@ -2,11 +2,9 @@ package com.snn.university.service;
 
 import com.snn.university.dto.CourseDTO;
 import com.snn.university.dto.ScheduleDTO;
+import com.snn.university.dto.SearchDTO;
 import com.snn.university.exception.MyEntityNotFoundException;
-import com.snn.university.model.Course;
-import com.snn.university.model.Department;
-import com.snn.university.model.Professor;
-import com.snn.university.model.Schedule;
+import com.snn.university.model.*;
 import com.snn.university.repository.ScheduleRepository;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.BeforeEach;
@@ -108,5 +106,19 @@ class ScheduleServiceTest {
         when(repository.findById(1)).thenReturn(Optional.of(list.get(0)));
         service.delete(1);
         verify(repository).deleteById(any());
+    }
+
+    @Test
+    void search(){
+        List<Search> list = Lists.list(
+                new Search("Prof1", "Course1"),
+                new Search("Prof1", "Course2"),
+                new Search("Prof2", "Course1"),
+                new Search("Prof3", "Course1")
+                );
+        when(repository.fetchProfCourseDataLeftJoin()).thenReturn(list);
+        List<SearchDTO> dtos = service.search();
+        assertEquals(dtos.size(), 3);
+        assertEquals(dtos.get(0).getCourses().size(), 2);
     }
 }

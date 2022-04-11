@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Search {
-    private Integer professorId;
     private String professorName;
     private String courseName;
 }
