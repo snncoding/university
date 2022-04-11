@@ -15,6 +15,7 @@ import org.mockito.MockitoAnnotations;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -117,8 +118,7 @@ class ScheduleServiceTest {
                 new Search("Prof3", "Course1")
                 );
         when(repository.fetchProfCourseDataLeftJoin()).thenReturn(list);
-        List<SearchDTO> dtos = service.search();
+        Set<SearchDTO> dtos = service.search();
         assertEquals(dtos.size(), 3);
-        assertEquals(dtos.get(0).getCourses().size(), 2);
     }
 }

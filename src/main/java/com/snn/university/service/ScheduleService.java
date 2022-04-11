@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.*;
@@ -82,7 +83,7 @@ public class ScheduleService {
         repository.deleteById(id);
     }
 
-    public List<SearchDTO> search(){
+    public Set<SearchDTO> search(){
         List<Search> list = repository.fetchProfCourseDataLeftJoin();
 //        return list.parallelStream().
 //                collect(groupingBy(Search::getProfessorName, mapping(Search::getCourseName, toList())));
@@ -92,6 +93,6 @@ public class ScheduleService {
                                 Search::getProfessorName,
                                 mapping(Search::getCourseName, toList()))
                 );
-        return map.keySet().stream().map(p-> new SearchDTO(p, map.get(p))).collect(toList());
+        return map.keySet().stream().map(p-> new SearchDTO(p, map.get(p))).collect(toSet());
     }
 }

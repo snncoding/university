@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface ScheduleRepository extends JpaRepository<Schedule, Integer> {
 
-    @Query("select new com.snn.university.model.Search(p.id, p.name, c.name)  from Schedule s left join Professor p on s.professor.id = p.id left join Course  c on s.course.id = c.id ")
+    @Query("select new com.snn.university.model.Search(p.name, c.name)  from Schedule s left join Professor p on s.professor.id = p.id left join Course  c on s.course.id = c.id ")
     public List<Search> fetchProfCourseDataLeftJoin();
 }
