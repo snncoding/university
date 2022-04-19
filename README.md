@@ -2,12 +2,17 @@
 
 Summary of design considerations
 
-- I finished to all requires at code assignment. While I doing that I used Springboot framework. As I'm building my back end services in Spring Boot, this Controller-Service-Repository pattern provide a lot of benefit. It keeps our code clean, it keeps our tests simple, and it makes it clear where new code should go. And it provide scalability. 
-- I created unit test only on servise layer. It shows that I can handle what we need. 
-- I applied swagger-ui so I could test easy.
-- I cared about clean code. So I used lombok library. Lombok library generates automaticaly class getter/setter and constructor by anotations. Maybe I could also use the Modelmapper library for clean code. But I didn't.
-- For schedule table, id column does not exist in the code assignment, but I prefered to use id column. Because it is easy to understand and to manage code with it. Other way I could use composite key.
-- I created a database it"s name university. Maybe you dont have it. So you can change its configuration on application.yml file.
+A university maintains data on professors, departments, courses, and schedules in four tables:
+department, professor, course, and schedule.
+Build REST end points for the four resources (department, professor, course, and
+schedule). Create the example data provided below with these REST endpoints.
+Create, Read, Delete Endpoints to be implemented.
+Additionally, write a GET REST method(/search) that would query for the names of all
+professors and the respective courses they teach. The result should contain the name of the
+professor and the names of all the courses he taught or is teaching right now.
+The response must contain professor name and the list of the courses he teaches teaches now
+or in the past. The professor names may be returned in any order, but the response must not
+contain duplicate entries.
 
 
 Proposed next steps/improvements
